@@ -8,7 +8,7 @@ import blessed from 'blessed'
 
 import reactBlessed from 'react-blessed'
 
-// play.tui-001-fetch.main/Button [17] 
+// play.tui-001-fetch.main/Button [10] 
 function Button({action,color,disabled,left,text,top}){
   return (
     <button
@@ -24,14 +24,14 @@ function Button({action,color,disabled,left,text,top}){
       }}
       padding={{"top":1,"right":2,"bottom":1,"left":2}}
       style={{
-        "bg":!disabled ? color : "black",
-        "fg":!disabled ? "white" : "gray",
+        "bg":!disabled ? [color,"black"] : null,
+        "fg":!disabled ? ["white","gray"] : null,
         "focus":{"bold":true}
       }}>
     </button>);
 }
 
-// play.tui-001-fetch.main/Fetch [37] 
+// play.tui-001-fetch.main/Fetch [30] 
 function Fetch(){
   let [val,setVal] = React.useState({});
   return (
@@ -65,7 +65,7 @@ function Fetch(){
     </box>);
 }
 
-// play.tui-001-fetch.main/App [60] 
+// play.tui-001-fetch.main/App [53] 
 function App(){
   return (
     <box
@@ -78,7 +78,7 @@ function App(){
     </box>);
 }
 
-// play.tui-001-fetch.main/Screen [71] 
+// play.tui-001-fetch.main/Screen [64] 
 function Screen(){
   let screen = blessed.screen(
     {"autoPadding":true,"smartCSR":true,"title":"Tui Fetch Basic"}
@@ -89,8 +89,8 @@ function Screen(){
   return screen;
 }
 
-// play.tui-001-fetch.main/__init__ [82] 
-// 5376c3c7-039f-420c-9608-29706f03927c
+// play.tui-001-fetch.main/__init__ [75] 
+// 0636dcf4-7a61-4c0a-a5db-526f78c4df17
 globalThis["fetch"] = nodeFetch;
 reactBlessed.render((
   <App></App>),Screen());
